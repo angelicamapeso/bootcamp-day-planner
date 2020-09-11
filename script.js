@@ -29,6 +29,11 @@ function placeLocalStorageObj(timeblockObj) {
   currentTimeblocks.push(timeblockObj);
   return;
 }
+
+function setLocalStorageObj(timeBlockList) {
+  localStorage.setItem('timeblockObjects', JSON.stringify(timeBlockList));
+}
+
 //put the current day in the currentDay id place
   //current day formatter
 function displayCurrentDate() {
