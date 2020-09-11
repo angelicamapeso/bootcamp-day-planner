@@ -143,6 +143,9 @@ function createSaveBtn(hour) {
     //or not
 
 //function to save event
-  //when button clickedy
+  //when button clicked
+  //take associated textArea
 
 //function to load event from local storage
+  //get local storage object
+  //for each hour, place in text area
