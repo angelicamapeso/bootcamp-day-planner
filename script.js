@@ -31,7 +31,7 @@ function createTimeBlocks() {
 
 function createCol(element, colSize) {
   const col = document.createElement('div');
-  col.classList.add(`col-${colSize}`);
+  col.classList.add(`col-${colSize}`,'p-0');
   col.appendChild(element);
   return col;
 }
