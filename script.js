@@ -1,3 +1,11 @@
+window.onload = function() {
+  //to get the current hour
+  console.log(moment().format('H'));
+
+  //to get the current day, formatted as..
+  console.log(moment().format('dddd, MMMM Do'));
+};
+
 //put the current day in the currentDay id place
   //current day formatter
 
@@ -12,9 +20,5 @@
   //colour based on if it's the current time
     //or not
 
-
-//to get the current hour
-console.log(moment().format('H'));
-
-//to get the current day, formatted as..
-console.log(moment().format('dddd, MMMM Do'));
+//function to save event
+  //when button clickedy
