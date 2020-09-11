@@ -36,7 +36,6 @@ function createTimeBlocks() {
 
     const saveBtn = createCol(createSaveBtn(),1);
     timeBlock.appendChild(saveBtn);
-
     document.querySelector('.container').appendChild(timeBlock);
   }
 }
