@@ -1,3 +1,10 @@
+class TimeblockObj {
+  constructor(hour, todo) {
+    this.hour = hour;
+    this.todo = todo;
+  }
+}
+
 window.onload = function() {
   //to get the current hour
   console.log(moment().format('H'));
