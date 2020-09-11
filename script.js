@@ -22,6 +22,13 @@ function displayCurrentDate() {
     //text area
     //save btn
 
+function createTimeBlocks() {
+  for (let i = 9; i <= 17; i ++) {
+    const timeBlock = document.createElement('div');
+    timeBlock.classList.add('row');
+  }
+}
+
 function createHour(hour) {
   const hourCol = document.createElement('div');
   hourCol.classList.add('hour');
