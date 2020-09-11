@@ -4,6 +4,8 @@ window.onload = function() {
 
   //to get the current day, formatted as..
   console.log(moment().format('dddd, MMMM Do'));
+
+  displayCurrentDate();
 };
 
 //put the current day in the currentDay id place
