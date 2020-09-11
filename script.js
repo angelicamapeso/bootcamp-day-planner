@@ -53,6 +53,12 @@ function createTextArea() {
   return document.createElement('textarea');
 }
 
+function createSaveBtn() {
+  const saveBtn = document.createElement('button');
+  saveBtn.innterHtml = '<i class="fas fa-save"></i>';
+  return saveBtn;
+}
+
 //check the current time
   //colour based on if it's the current time
     //or not
