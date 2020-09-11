@@ -16,6 +16,19 @@ window.onload = function() {
   createTimeBlocks();
 };
 
+function placeLocalStorageObj(timeblockObj) {
+  //go through the current list
+  if (currentTimeblocks.length > 0) {
+    for (let savedTimeblock of currentTimeblocks) {
+      if (savedTimeblock.hour === timeblockObj.hour) {
+        savedTimeblock.todo = timeblockObj.todo;
+        return;
+      }
+    }
+  } 
+  currentTimeblocks.push(timeblockObj);
+  return;
+}
 //put the current day in the currentDay id place
   //current day formatter
 function displayCurrentDate() {
