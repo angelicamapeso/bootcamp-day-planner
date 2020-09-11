@@ -29,6 +29,13 @@ function createTimeBlocks() {
   }
 }
 
+function createCol(element, colSize) {
+  const col = document.createElement('div');
+  col.classList.add(`col-${colSize}`);
+  col.appendChild(element);
+  return col;
+}
+
 function createHour(hour) {
   const hourCol = document.createElement('div');
   hourCol.classList.add('hour');
