@@ -25,8 +25,14 @@ function displayCurrentDate() {
 function createHourCol(hour) {
   const hourCol = document.createElement('div');
   hourCol.classList.add('hour');
-  hourCol.textContent = hour;
+  hourCol.textContent = formatHour(hour);
   return hourCol;
+}
+
+function formatHour(hour) {
+  // console.log(moment('13', 'h').format('hA'));
+  const hourString = String(hour);
+  return moment(hourString, 'h').format('hA');
 }
 
 //check the current time
