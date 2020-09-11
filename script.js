@@ -5,6 +5,10 @@ class TimeblockObj {
   }
 }
 
+let currentTimeblocks = getLocalStorageObj();
+document.querySelector('.container').addEventListener('click',saveTimeBlock);
+
+
 window.onload = function() {
   //to get the current hour
   console.log(moment().format('H'));
@@ -44,6 +48,15 @@ function placeLocalStorageObj(timeblockObj) {
 
 function setLocalStorageObj(timeBlockList) {
   localStorage.setItem('timeblockObjects', JSON.stringify(timeBlockList));
+}
+
+function getLocalStorageObj() {
+  const currentTimeBlocks = localStorage.getItem('timeblockObjects');
+  if (currentTimeBlocks) {
+    return JSON.parse(currentTimeBlocks);
+  } else {
+    return [];
+  }
 }
 
 //put the current day in the currentDay id place
