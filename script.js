@@ -28,3 +28,5 @@ function displayCurrentDate() {
 
 //function to save event
   //when button clickedy
+
+//function to load event from local storage
