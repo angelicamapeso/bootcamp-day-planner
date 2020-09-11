@@ -24,6 +24,8 @@ function displayCurrentDate() {
     //save btn
 
 function createTimeBlocks() {
+  const currentHour = parseInt(moment().format('H'));
+
   for (let i = 9; i <= 17; i ++) {
     const timeBlock = document.createElement('div');
     timeBlock.classList.add('row');
@@ -31,7 +33,7 @@ function createTimeBlocks() {
     const hourCol = createCol(createHour(i), 1);
     timeBlock.appendChild(hourCol);
 
-    const textArea = createCol(createTextArea(),10);
+    const textArea = createCol(createTextArea(i,currentHour),10);
     timeBlock.appendChild(textArea);
 
     const saveBtn = createCol(createSaveBtn(),1);
@@ -60,8 +62,20 @@ function formatHour(hour) {
   return moment(hourString, 'h').format('hA');
 }
 
-function createTextArea() {
-  return document.createElement('textarea');
+function createTextArea(hour, currentHour) {
+  const textArea = document.createElement('textarea');
+  textArea.classList.add(getTextAreaBackgroundClass(hour, currentHour));
+  return textArea;
+}
+
+function getTextAreaBackgroundClass(hour, currentHour) {
+  if (hour < currentHour) {
+    return 'past';
+  } else if (hour === currentHour) {
+    return 'present';
+  } else {
+    return 'future';
+  }
 }
 
 function createSaveBtn() {
