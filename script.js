@@ -55,7 +55,8 @@ function createTextArea() {
 
 function createSaveBtn() {
   const saveBtn = document.createElement('button');
-  saveBtn.innterHtml = '<i class="fas fa-save"></i>';
+  saveBtn.classList.add('saveBtn');
+  saveBtn.innerHTML = '<i class="fas fa-save"></i>';
   return saveBtn;
 }
 
