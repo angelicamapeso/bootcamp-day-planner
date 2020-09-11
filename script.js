@@ -14,7 +14,19 @@ window.onload = function() {
 
   displayCurrentDate();
   createTimeBlocks();
+
 };
+
+function saveTimeBlock(event) {
+  event.preventDefault();
+
+  if (event.target.matches('button')) {
+    const dataHour = event.target.dataset.hour;
+    const textAreaValue = document.querySelector(`#timeblock-${dataHour} textarea`).value;
+    placeLocalStorageObj(new TimeblockObj(dataHour, textAreaValue));
+    setLocalStorageObj(currentTimeblocks);
+  }
+}
 
 function placeLocalStorageObj(timeblockObj) {
   //go through the current list
