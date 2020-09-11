@@ -49,6 +49,10 @@ function formatHour(hour) {
   return moment(hourString, 'h').format('hA');
 }
 
+function createTextArea() {
+  return document.createElement('textarea');
+}
+
 //check the current time
   //colour based on if it's the current time
     //or not
