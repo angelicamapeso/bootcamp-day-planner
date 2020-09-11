@@ -22,6 +22,13 @@ function displayCurrentDate() {
     //text area
     //save btn
 
+function createHourCol(hour) {
+  const hourCol = document.createElement('div');
+  hourCol.classList.add('hour');
+  hourCol.textContent = hour;
+  return hourCol;
+}
+
 //check the current time
   //colour based on if it's the current time
     //or not
