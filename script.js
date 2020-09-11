@@ -22,7 +22,7 @@ function displayCurrentDate() {
     //text area
     //save btn
 
-function createHourCol(hour) {
+function createHour(hour) {
   const hourCol = document.createElement('div');
   hourCol.classList.add('hour');
   hourCol.textContent = formatHour(hour);
