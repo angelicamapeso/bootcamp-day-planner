@@ -8,6 +8,9 @@ window.onload = function() {
 
 //put the current day in the currentDay id place
   //current day formatter
+function displayCurrentDate() {
+  document.getElementById('currentDay').textContent = moment().format('dddd, MMMM Do');
+}
 
 //dynamically generate:
   //rows of container
