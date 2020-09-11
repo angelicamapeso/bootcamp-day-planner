@@ -86,8 +86,10 @@ function createTimeBlocks() {
     const textArea = createCol(createTextArea(i,currentHour),10);
     timeBlock.appendChild(textArea);
 
-    const saveBtn = createCol(createSaveBtn(),1);
+    const saveBtn = createCol(createSaveBtn(i),1);
     timeBlock.appendChild(saveBtn);
+
+    timeBlock.id = `timeblock-${i}`;
     document.querySelector('.container').appendChild(timeBlock);
   }
 }
@@ -128,10 +130,11 @@ function getTextAreaBackgroundClass(hour, currentHour) {
   }
 }
 
-function createSaveBtn() {
+function createSaveBtn(hour) {
   const saveBtn = document.createElement('button');
   saveBtn.classList.add('saveBtn');
   saveBtn.innerHTML = '<i class="fas fa-save"></i>';
+  saveBtn.setAttribute('data-hour', hour);
   return saveBtn;
 }
 
