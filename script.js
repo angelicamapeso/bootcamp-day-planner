@@ -6,6 +6,7 @@ window.onload = function() {
   console.log(moment().format('dddd, MMMM Do'));
 
   displayCurrentDate();
+  createTimeBlocks();
 };
 
 //put the current day in the currentDay id place
@@ -26,6 +27,17 @@ function createTimeBlocks() {
   for (let i = 9; i <= 17; i ++) {
     const timeBlock = document.createElement('div');
     timeBlock.classList.add('row');
+
+    const hourCol = createCol(createHour(i), 1);
+    timeBlock.appendChild(hourCol);
+
+    const textArea = createCol(createTextArea(),10);
+    timeBlock.appendChild(textArea);
+
+    const saveBtn = createCol(createSaveBtn(),1);
+    timeBlock.appendChild(saveBtn);
+
+    document.querySelector('.container').appendChild(timeBlock);
   }
 }
 
