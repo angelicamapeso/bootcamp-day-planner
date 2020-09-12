@@ -27,7 +27,7 @@ function setTimeblockText(timeblockList) {
 }
 
 function containerClicked(event) {
-  if (event.target.matches('button') || event.target.matches('i')) {
+  if (isSaveButton(event)) {
     let dataHour;
     if (event.target.matches('i')) {
       dataHour = event.target.parentElement.dataset.hour;
@@ -38,6 +38,10 @@ function containerClicked(event) {
     placeLocalStorageObj(new TimeblockObj(dataHour, textAreaValue));
     setLocalStorageObj(currentTimeblocks);
   }
+}
+
+function isSaveButton(event) {
+  return event.target.matches('button') || event.target.matches('.fa-save');
 }
 
 function placeLocalStorageObj(timeblockObj) {
