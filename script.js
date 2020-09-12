@@ -95,6 +95,13 @@ function displayTimeblockRows() {
   }
 }
 
+function createTimeblockRow(hourId) {
+  const timeblock = document.createElement('div');
+  timeblock.classList.add('row');
+  timeblock.id = `timeblock-${hourId}`;
+  return timeblock;
+}
+
 function createCol(element, colSize) {
   const col = document.createElement('div');
   col.classList.add(`col-${colSize}`,'p-0');
