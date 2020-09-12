@@ -19,8 +19,8 @@ function setTimeblockText(timeblockList) {
     return;
   } else {
     for (let timeblock of timeblockList) {
-      const textArea = document.querySelector(`#timeblock-${timeblock.hour} textarea`);
-      textArea.value = timeblock.todo;
+      document.querySelector(`#timeblock-${timeblock.hour} textarea`)
+        .value = timeblock.todo;
     }
   }
 }
