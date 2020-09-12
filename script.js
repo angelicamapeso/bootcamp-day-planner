@@ -131,13 +131,9 @@ function createTextArea(hour, currentHour) {
 }
 
 function getTextAreaBackgroundClass(hour, currentHour) {
-  if (hour < currentHour) {
-    return 'past';
-  } else if (hour === currentHour) {
-    return 'present';
-  } else {
-    return 'future';
-  }
+  return hour < currentHour ? 'past' 
+    : hour === currentHour ? 'present' 
+    : 'future';
 }
 
 function createSaveBtn(hour) {
