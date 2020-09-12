@@ -6,11 +6,12 @@ class TimeblockObj {
 }
 
 let currentTimeblocks = getLocalStorageObj();
-document.querySelector('.container').addEventListener('click',saveTimeblock);
 
 window.onload = function() {
   displayCurrentDate();
   createTimeblocks();
+
+  document.querySelector('.container').addEventListener('click', containerClicked);
   setTimeblockText(currentTimeblocks);
 };
 
@@ -25,7 +26,7 @@ function setTimeblockText(timeblockList) {
   }
 }
 
-function saveTimeblock(event) {
+function containerClicked(event) {
   if (event.target.matches('button') || event.target.matches('i')) {
     let dataHour;
     if (event.target.matches('i')) {
