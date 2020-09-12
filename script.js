@@ -31,7 +31,7 @@ function containerClicked(event) {
     const timeblockHour = getTimeblockHour(event);
     const textAreaValue = getTextAreaValue(timeblockHour);
     placeTimeblockInList(new TimeblockObj(timeblockHour, textAreaValue));
-    setLocalStorageObj(currentTimeblocks);
+    saveTimeblockList();
   }
 }
 
@@ -60,8 +60,8 @@ function placeTimeblockInList(newTimeblockObj) {
   return;
 }
 
-function setLocalStorageObj(timeBlockList) {
-  localStorage.setItem('timeblockObjects', JSON.stringify(timeBlockList));
+function saveTimeblockList() {
+  localStorage.setItem('timeblockObjects', JSON.stringify(currentTimeblocks));
 }
 
 function getLocalStorageObj() {
