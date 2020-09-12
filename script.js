@@ -5,14 +5,17 @@ class TimeblockObj {
   }
 }
 
-let currentTimeblocks = getCurrentTimeblocks();
-
 window.onload = function() {
+  const currentTimeblocks = getCurrentTimeblocks();
+
   displayCurrentDate();
   displayTimeblockRows();
 
-  document.querySelector('.container').addEventListener('click', containerClicked);
-  setTimeblockText();
+  document.querySelector('.container')
+    .addEventListener('click', function(event) {
+      containerClicked(event, currentTimeblocks);
+    });
+  setTimeblockText(currentTimeblocks);
 };
 
 function getCurrentTimeblocks() {
@@ -97,12 +100,12 @@ function appendTimeblockColumns(timeblockRow, hourCol, textAreaCol, saveBtnCol) 
 }
 
 /*** functions for saving to local storage ***/
-function containerClicked(event) {
+function containerClicked(event, timeblockList) {
   if (isSaveButton(event)) {
     const timeblockHour = getTimeblockHour(event);
     const textAreaValue = getTextAreaValue(timeblockHour);
-    placeTimeblockInList(new TimeblockObj(timeblockHour, textAreaValue));
-    saveTimeblockList();
+    placeTimeblockInList(new TimeblockObj(timeblockHour, textAreaValue), timeblockList);
+    saveTimeblockList(timeblockList);
   }
 }
 
@@ -118,28 +121,28 @@ function getTextAreaValue(timeblockHour) {
   return document.querySelector(`#timeblock-${timeblockHour} textarea`).value;
 }
 
-function placeTimeblockInList(newTimeblockObj) {
-  if (currentTimeblocks.length > 0) {
-    for (let savedTimeblock of currentTimeblocks) {
+function placeTimeblockInList(newTimeblockObj, timeblockList) {
+  if (timeblockList.length > 0) {
+    for (let savedTimeblock of timeblockList) {
       if (savedTimeblock.hour === newTimeblockObj.hour) {
         savedTimeblock.todo = newTimeblockObj.todo;
         return;
       }
     }
   } 
-  currentTimeblocks.push(newTimeblockObj);
+  timeblockList.push(newTimeblockObj);
   return;
 }
 
-function saveTimeblockList() {
-  localStorage.setItem('timeblockObjects', JSON.stringify(currentTimeblocks));
+function saveTimeblockList(timeblockList) {
+  localStorage.setItem('timeblockObjects', JSON.stringify(timeblockList));
 }
 
-function setTimeblockText() {
-  if (currentTimeblocks.length === 0 ) {
+function setTimeblockText(timeblockList) {
+  if (timeblockList.length === 0 ) {
     return;
   } else {
-    for (let timeblock of currentTimeblocks) {
+    for (let timeblock of timeblockList) {
       document.querySelector(`#timeblock-${timeblock.hour} textarea`)
         .value = timeblock.todo;
     }
