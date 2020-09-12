@@ -31,7 +31,7 @@ function displayCurrentDate(currentTime) {
 
 /*** functions for displaying all timeblock rows ***/
 function displayTimeblockRows(currentTime) {
-  const currentHour = getCurrentHour(currentTime);
+  const currentHour = currentTime.hour();
   //working hours are 9-5 or 9-17
   for (let i = 9; i <= 17; i ++) {
     const timeblock = createTimeblockRow(i);
@@ -41,10 +41,6 @@ function displayTimeblockRows(currentTime) {
     appendTimeblockColumns(timeblock, hourCol, textArea, saveBtn);
     document.querySelector('.container').appendChild(timeblock);
   }
-}
-
-function getCurrentHour(currentTime) {
-  return currentTime.hour();
 }
 
 function createTimeblockRow(hourId) {
