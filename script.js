@@ -7,9 +7,10 @@ class TimeblockObj {
 
 window.onload = function() {
   const currentTimeblocks = getCurrentTimeblocks();
+  const currentTime = moment();
 
-  displayCurrentDate();
-  displayTimeblockRows();
+  displayCurrentDate(currentTime);
+  displayTimeblockRows(currentTime);
 
   document.querySelector('.container')
     .addEventListener('click', function(event) {
@@ -23,14 +24,14 @@ function getCurrentTimeblocks() {
   return currentTimeblocks ? JSON.parse(currentTimeblocks) : [];
 }
 
-function displayCurrentDate() {
+function displayCurrentDate(currentTime) {
   document.getElementById('currentDay')
-    .textContent = moment().format('dddd, MMMM Do');
+    .textContent = currentTime.format('dddd, MMMM Do');
 }
 
 /*** functions for displaying all timeblock rows ***/
-function displayTimeblockRows() {
-  const currentHour = getCurrentHour();
+function displayTimeblockRows(currentTime) {
+  const currentHour = getCurrentHour(currentTime);
   //working hours are 9-5 or 9-17
   for (let i = 9; i <= 17; i ++) {
     const timeblock = createTimeblockRow(i);
@@ -42,8 +43,8 @@ function displayTimeblockRows() {
   }
 }
 
-function getCurrentHour() {
-  return parseInt(moment().format('H'));
+function getCurrentHour(currentTime) {
+  return currentTime.hour();
 }
 
 function createTimeblockRow(hourId) {
