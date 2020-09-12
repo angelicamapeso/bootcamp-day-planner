@@ -79,7 +79,7 @@ function displayTimeblockRows() {
   //working hours are 9-5 or 9-17
   for (let i = 9; i <= 17; i ++) {
     const timeblock = createTimeblockRow(i);
-    const hourCol = createCol(createHour(i), 1);
+    const hourCol = createCol(createHourDiv(i), 1);
     const textArea = createCol(createTextArea(i, currentHour), 10);
     const saveBtn = createCol(createSaveBtn(i), 1);
     appendTimeblockColumns(timeblock, hourCol, textArea, saveBtn);
@@ -112,7 +112,7 @@ function createCol(element, colSize) {
   return col;
 }
 
-function createHour(hour) {
+function createHourDiv(hour) {
   const hourCol = document.createElement('div');
   hourCol.classList.add('hour');
   hourCol.textContent = formatHour(hour);
