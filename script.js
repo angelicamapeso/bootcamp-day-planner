@@ -26,10 +26,13 @@ function setTimeblockText(timeblockList) {
 }
 
 function saveTimeBlock(event) {
-  event.preventDefault();
-
-  if (event.target.matches('button')) {
-    const dataHour = event.target.dataset.hour;
+  if (event.target.matches('button') || event.target.matches('i')) {
+    let dataHour;
+    if (event.target.matches('i')) {
+      dataHour = event.target.parentElement.dataset.hour;
+    } else {
+      dataHour = event.target.dataset.hour;
+    }
     const textAreaValue = document.querySelector(`#timeblock-${dataHour} textarea`).value;
     placeLocalStorageObj(new TimeblockObj(dataHour, textAreaValue));
     setLocalStorageObj(currentTimeblocks);
