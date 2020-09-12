@@ -95,6 +95,10 @@ function displayTimeblockRows() {
   }
 }
 
+function getCurrentHour() {
+  return parseInt(moment().format('H'));
+}
+
 function createTimeblockRow(hourId) {
   const timeblock = document.createElement('div');
   timeblock.classList.add('row');
