@@ -28,20 +28,19 @@ function setTimeblockText(timeblockList) {
 
 function containerClicked(event) {
   if (isSaveButton(event)) {
-    let dataHour;
-    if (event.target.matches('i')) {
-      dataHour = event.target.parentElement.dataset.hour;
-    } else {
-      dataHour = event.target.dataset.hour;
-    }
-    const textAreaValue = document.querySelector(`#timeblock-${dataHour} textarea`).value;
-    placeLocalStorageObj(new TimeblockObj(dataHour, textAreaValue));
+    const timeblockHour = getTimeblockHour(event);
+    const textAreaValue = document.querySelector(`#timeblock-${timeblockHour} textarea`).value;
+    placeLocalStorageObj(new TimeblockObj(timeblockHour, textAreaValue));
     setLocalStorageObj(currentTimeblocks);
   }
 }
 
 function isSaveButton(event) {
   return event.target.matches('button') || event.target.matches('.fa-save');
+}
+
+function getTimeblockHour(event) {
+  return event.target.matches('i') ? event.target.parentElement.dataset.hour : event.target.dataset.hour;
 }
 
 function placeLocalStorageObj(timeblockObj) {
