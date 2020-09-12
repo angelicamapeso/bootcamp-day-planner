@@ -75,22 +75,14 @@ function displayCurrentDate() {
 }
 
 function displayTimeblockRows() {
-  const currentHour = parseInt(moment().format('H'));
-
+  const currentHour = getCurrentHour();
+  //working hours are 9-5 or 9-17
   for (let i = 9; i <= 17; i ++) {
-    const timeblock = document.createElement('div');
-    timeblock.classList.add('row');
-
+    const timeblock = createTimeblockRow(i);
     const hourCol = createCol(createHour(i), 1);
-    timeblock.appendChild(hourCol);
-
-    const textArea = createCol(createTextArea(i,currentHour),10);
-    timeblock.appendChild(textArea);
-
-    const saveBtn = createCol(createSaveBtn(i),1);
-    timeblock.appendChild(saveBtn);
-
-    timeblock.id = `timeblock-${i}`;
+    const textArea = createCol(createTextArea(i, currentHour), 10);
+    const saveBtn = createCol(createSaveBtn(i), 1);
+    appendTimeblockColumns(timeblock, hourCol, textArea, saveBtn);
     document.querySelector('.container').appendChild(timeblock);
   }
 }
