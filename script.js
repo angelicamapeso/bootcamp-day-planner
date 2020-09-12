@@ -12,14 +12,14 @@ window.onload = function() {
   createTimeblocks();
 
   document.querySelector('.container').addEventListener('click', containerClicked);
-  setTimeblockText(currentTimeblocks);
+  setTimeblockText();
 };
 
-function setTimeblockText(timeblockList) {
-  if (timeblockList.length === 0 ) {
+function setTimeblockText() {
+  if (currentTimeblocks.length === 0 ) {
     return;
   } else {
-    for (let timeblock of timeblockList) {
+    for (let timeblock of currentTimeblocks) {
       document.querySelector(`#timeblock-${timeblock.hour} textarea`)
         .value = timeblock.todo;
     }
