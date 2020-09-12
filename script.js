@@ -18,8 +18,19 @@ window.onload = function() {
 
   displayCurrentDate();
   createTimeBlocks();
-
+  setTimeblockText(currentTimeblocks);
 };
+
+function setTimeblockText(timeblockList) {
+  if (timeblockList.length === 0 ) {
+    return;
+  } else {
+    for (let timeblock of timeblockList) {
+      const textArea = document.querySelector(`#timeblock-${timeblock.hour} textarea`);
+      textArea.value = timeblock.todo;
+    }
+  }
+}
 
 function saveTimeBlock(event) {
   event.preventDefault();
