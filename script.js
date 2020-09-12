@@ -6,11 +6,11 @@ class TimeblockObj {
 }
 
 let currentTimeblocks = getLocalStorageObj();
-document.querySelector('.container').addEventListener('click',saveTimeBlock);
+document.querySelector('.container').addEventListener('click',saveTimeblock);
 
 window.onload = function() {
   displayCurrentDate();
-  createTimeBlocks();
+  createTimeblocks();
   setTimeblockText(currentTimeblocks);
 };
 
@@ -25,7 +25,7 @@ function setTimeblockText(timeblockList) {
   }
 }
 
-function saveTimeBlock(event) {
+function saveTimeblock(event) {
   if (event.target.matches('button') || event.target.matches('i')) {
     let dataHour;
     if (event.target.matches('i')) {
@@ -57,9 +57,9 @@ function setLocalStorageObj(timeBlockList) {
 }
 
 function getLocalStorageObj() {
-  const currentTimeBlocks = localStorage.getItem('timeblockObjects');
-  if (currentTimeBlocks) {
-    return JSON.parse(currentTimeBlocks);
+  const currentTimeblocks = localStorage.getItem('timeblockObjects');
+  if (currentTimeblocks) {
+    return JSON.parse(currentTimeblocks);
   } else {
     return [];
   }
@@ -70,24 +70,24 @@ function displayCurrentDate() {
     .textContent = moment().format('dddd, MMMM Do');
 }
 
-function createTimeBlocks() {
+function createTimeblocks() {
   const currentHour = parseInt(moment().format('H'));
 
   for (let i = 9; i <= 17; i ++) {
-    const timeBlock = document.createElement('div');
-    timeBlock.classList.add('row');
+    const timeblock = document.createElement('div');
+    timeblock.classList.add('row');
 
     const hourCol = createCol(createHour(i), 1);
-    timeBlock.appendChild(hourCol);
+    timeblock.appendChild(hourCol);
 
     const textArea = createCol(createTextArea(i,currentHour),10);
-    timeBlock.appendChild(textArea);
+    timeblock.appendChild(textArea);
 
     const saveBtn = createCol(createSaveBtn(i),1);
-    timeBlock.appendChild(saveBtn);
+    timeblock.appendChild(saveBtn);
 
-    timeBlock.id = `timeblock-${i}`;
-    document.querySelector('.container').appendChild(timeBlock);
+    timeblock.id = `timeblock-${i}`;
+    document.querySelector('.container').appendChild(timeblock);
   }
 }
 
