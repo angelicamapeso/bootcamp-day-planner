@@ -102,6 +102,13 @@ function createTimeblockRow(hourId) {
   return timeblock;
 }
 
+function appendTimeblockColumns(timeblockRow, hourCol, textAreaCol, saveBtnCol) {
+  const innerCols = [hourCol, textAreaCol, saveBtnCol];
+  for (let col of innerCols) {
+    timeblockRow.appendChild(col);
+  }
+}
+
 function createCol(element, colSize) {
   const col = document.createElement('div');
   col.classList.add(`col-${colSize}`,'p-0');
