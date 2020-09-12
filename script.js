@@ -30,7 +30,7 @@ function containerClicked(event) {
   if (isSaveButton(event)) {
     const timeblockHour = getTimeblockHour(event);
     const textAreaValue = getTextAreaValue(timeblockHour);
-    placeLocalStorageObj(new TimeblockObj(timeblockHour, textAreaValue));
+    placeTimeblockInList(new TimeblockObj(timeblockHour, textAreaValue));
     setLocalStorageObj(currentTimeblocks);
   }
 }
@@ -47,16 +47,16 @@ function getTextAreaValue(timeblockHour) {
   return document.querySelector(`#timeblock-${timeblockHour} textarea`).value;
 }
 
-function placeLocalStorageObj(timeblockObj) {
+function placeTimeblockInList(newTimeblockObj) {
   if (currentTimeblocks.length > 0) {
     for (let savedTimeblock of currentTimeblocks) {
-      if (savedTimeblock.hour === timeblockObj.hour) {
-        savedTimeblock.todo = timeblockObj.todo;
+      if (savedTimeblock.hour === newTimeblockObj.hour) {
+        savedTimeblock.todo = newTimeblockObj.todo;
         return;
       }
     }
   } 
-  currentTimeblocks.push(timeblockObj);
+  currentTimeblocks.push(newTimeblockObj);
   return;
 }
 
