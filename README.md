@@ -1,5 +1,5 @@
 # Bootcamp - Homework 5: Day Planner
-A planner for the workings hours (9-5) of the current day. Each hour block has a text area for the user to enter tasks/events for that hour. They may save their entries to local storage using the save button.
+A planner for the workings hours (9-5) of the current day. Each hour block has a text area for the user to enter tasks/events for that hour. They may save their entries to local storage using the corresponding save button.
 
 The planner also colour codes the hour blocks based on:
 - if it is a past hour
