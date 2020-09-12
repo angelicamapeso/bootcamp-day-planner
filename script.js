@@ -29,7 +29,7 @@ function setTimeblockText(timeblockList) {
 function containerClicked(event) {
   if (isSaveButton(event)) {
     const timeblockHour = getTimeblockHour(event);
-    const textAreaValue = document.querySelector(`#timeblock-${timeblockHour} textarea`).value;
+    const textAreaValue = getTextAreaValue(timeblockHour);
     placeLocalStorageObj(new TimeblockObj(timeblockHour, textAreaValue));
     setLocalStorageObj(currentTimeblocks);
   }
@@ -41,6 +41,10 @@ function isSaveButton(event) {
 
 function getTimeblockHour(event) {
   return event.target.matches('i') ? event.target.parentElement.dataset.hour : event.target.dataset.hour;
+}
+
+function getTextAreaValue(timeblockHour) {
+  return document.querySelector(`#timeblock-${timeblockHour} textarea`).value;
 }
 
 function placeLocalStorageObj(timeblockObj) {
