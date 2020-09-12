@@ -5,7 +5,7 @@ class TimeblockObj {
   }
 }
 
-let currentTimeblocks = getLocalStorageObj();
+let currentTimeblocks = getCurrentTimeblocks();
 
 window.onload = function() {
   displayCurrentDate();
@@ -64,13 +64,9 @@ function saveTimeblockList() {
   localStorage.setItem('timeblockObjects', JSON.stringify(currentTimeblocks));
 }
 
-function getLocalStorageObj() {
+function getCurrentTimeblocks() {
   const currentTimeblocks = localStorage.getItem('timeblockObjects');
-  if (currentTimeblocks) {
-    return JSON.parse(currentTimeblocks);
-  } else {
-    return [];
-  }
+  return currentTimeblocks ? JSON.parse(currentTimeblocks) : [];
 }
 
 function displayCurrentDate() {
