@@ -9,7 +9,7 @@ let currentTimeblocks = getCurrentTimeblocks();
 
 window.onload = function() {
   displayCurrentDate();
-  createTimeblocks();
+  displayTimeblockRows();
 
   document.querySelector('.container').addEventListener('click', containerClicked);
   setTimeblockText();
@@ -74,7 +74,7 @@ function displayCurrentDate() {
     .textContent = moment().format('dddd, MMMM Do');
 }
 
-function createTimeblocks() {
+function displayTimeblockRows() {
   const currentHour = parseInt(moment().format('H'));
 
   for (let i = 9; i <= 17; i ++) {
